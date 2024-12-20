@@ -1,0 +1,74 @@
+#server:
+#  port: 9000
+#
+#spring:
+#  main:
+#    web-application-type: reactive
+#  application:
+#    name: api-gateway
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#
+#
+##eureka:
+##  client:
+##    serviceUrl:
+##      defaultZone: http://localhost:8761/eureka
+##    register-with-eureka: true
+##    fetch-registry: true
+##  instance:
+##    prefer:
+##      IpAddress: true
+##    hostname: localhost
+#
+#
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: authentication-route
+#          uri: lb://AUTHENTICATION-SERVICE
+#          predicates:
+#            - Path=/auth/**
+#          filters:
+#            - AuthenticationFilter
+#
+#        - id: user-route
+#          uri: lb://USER-SERVICE
+#          predicates:
+#            - Path=/api/user/**
+#          filters:
+#            - AuthenticationFilter
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#
+#  application:
+#    name: api-gateway
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#
+#server:
+#  port: 9000
